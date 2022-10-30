@@ -1,1 +1,76 @@
+" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
+" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
+" you can find below.  If you wish to change any of those settings, you should
+" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
+" everytime an upgrade of the vim packages is performed.  It is recommended to
+" make changes after sourcing archlinux.vim since it alters the value of the
+" 'compatible' option.
+
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages.
+runtime! archlinux.vim
+
+" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
+" Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
+" and configure vim to your own liking!
+
+" do not load defaults if ~/.vimrc is missing
+"let skip_defaults_vim=1
+
+" When opening a new line and no filetype-specific indenting is enabled, keep the same indent as the line you're currently on. Useful for READMEs, etc.
+"set autoindent
+
+"Syntax highlight
+syntax on
+
+" Better command-line completion
+set wildmenu
+
+" Allow backspacing over autoindent, line breaks and start of insert action
+set backspace=indent,eol,start
+
+" Display the cursor position on the last line of the screen or in the status line of a window
+set ruler
+
+" Display line numbers on the left
+set number
+
+" Color Scheme
+colorscheme molokai
+
+"###################### Vundle Plugin stuff ############
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=/usr/share/vim/vim90/bundle/Vundle.vim
+call vundle#begin("/usr/share/vim/vim90/bundle")
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'bling/vim-airline'                  "Nice statusbar
+Plugin 'vim-airline/vim-airline-themes'     "Themes for status bar
+Plugin 'tpope/vim-surround'                 "Bracket-closing and stuff
+Plugin 'w0rp/ale'                           "Auto-completion and stuff
+Plugin 'AutoComplPop'                       "Automatically trigger completion
+"Plugin 'honza/vim-snippets'                 "Snippets for auto-completion
+Plugin 'thaerkh/vim-indentguides'           "Lines - indent guides
+Plugin 'msanders/snipmate.vim'              "Snippets
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+set omnifunc=ale#completion#OmniFunc        "Enable completion using ALE
+set cursorline                              "Highlight current line
+"Tab and Indent
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smartindent                             "Smart Indent, I guess
+
+let g:airline_theme='minimalist'            "Status Bar theme
 
