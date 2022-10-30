@@ -1,3 +1,10 @@
+"System-wide vim config
+"Location on Arch: /etc/vimrc
+"Location on Debian: /etc/vim/vimrc
+
+
+"THESE lines were just here when I installed vim on Arch:
+
 " All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
 " /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
 " you can find below.  If you wish to change any of those settings, you should
@@ -8,7 +15,8 @@
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages.
-runtime! archlinux.vim
+runtime! archlinux.vim      "This one for Arch
+runtime! debian.vim         "This one for Debian
 
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
@@ -17,60 +25,65 @@ runtime! archlinux.vim
 " do not load defaults if ~/.vimrc is missing
 "let skip_defaults_vim=1
 
-" When opening a new line and no filetype-specific indenting is enabled, keep the same indent as the line you're currently on. Useful for READMEs, etc.
-"set autoindent
+"END of stuff pre-written on installation
 
-"Syntax highlight
-syntax on
 
-" Better command-line completion
-set wildmenu
-
-" Allow backspacing over autoindent, line breaks and start of insert action
-set backspace=indent,eol,start
-
-" Display the cursor position on the last line of the screen or in the status line of a window
-set ruler
-
-" Display line numbers on the left
-set number
-
-" Color Scheme
-colorscheme molokai
 
 "###################### Vundle Plugin stuff ############
+"Vundle must installed 1st. Refer: https://github.com/VundleVim/Vundle.vim
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype off                    " required, for some reason
 
 " set the runtime path to include Vundle and initialize
+"For vim9:
 set rtp+=/usr/share/vim/vim90/bundle/Vundle.vim
 call vundle#begin("/usr/share/vim/vim90/bundle")
+
+"For vim8:
+"set rtp+=/usr/share/vim/vim82/bundle/Vundle.vim
+"call vundle#begin("/usr/share/vim.vim82/bundle")  "That's how it was on Debian
+
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'bling/vim-airline'                  "Nice statusbar
-Plugin 'vim-airline/vim-airline-themes'     "Themes for status bar
+Plugin 'vim-airline/vim-airline-themes'     "Nice themes for that nice status bar
 Plugin 'tpope/vim-surround'                 "Bracket-closing and stuff
 Plugin 'w0rp/ale'                           "Auto-completion and stuff
 Plugin 'AutoComplPop'                       "Automatically trigger completion
-"Plugin 'honza/vim-snippets'                 "Snippets for auto-completion
 Plugin 'thaerkh/vim-indentguides'           "Lines - indent guides
 Plugin 'msanders/snipmate.vim'              "Snippets
+"Plugin 'honza/vim-snippets'                 "Snippets for auto-completion "Better avoid this one and use the og by msanders cz some error shows up. Gotta fix that.
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()            " required "Methinks this is the end of the function call
+filetype plugin indent on     " required "Not sure what it means
 
+"###################### END of Vundle Plugin stuff ############
 
 set omnifunc=ale#completion#OmniFunc        "Enable completion using ALE
 set cursorline                              "Highlight current line
-"Tab and Indent
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set smartindent                             "Smart Indent, I guess
 
+"Tab and Indent
+set expandtab                               "Tab=set of spaces
+set tabstop=4                               "Not sure what it is
+set softtabstop=4                           "Can't remember this one either
+set shiftwidth=4                            "1 Tab = 4 Spaces
+
+set smartindent                             "Smart Indent, I guess
+"set autoindent                             " When opening a new line and no filetype-specific indenting is enabled, keep the same indent as the line you're currently on. Useful for READMEs, etc.
+
+syntax on                                   "Syntax highlighting
+
+set wildmenu                                " Better command-line completion
+
+set backspace=indent,eol,start              " Allow backspacing over autoindent, line breaks and start of insert action
+
+set ruler                                   " Display the cursor position on the last line of the screen or in the status line of a window
+set number                                  " Display line numbers on the left
+
+" Color Scheme
+colorscheme molokai                         "Total color theme. Molokai is a bit darker mod of monokai
 let g:airline_theme='minimalist'            "Status Bar theme
 
