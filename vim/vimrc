@@ -15,7 +15,7 @@
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages.
-runtime! archlinux.vim      "This one for Arch
+"runtime! archlinux.vim      "This one for Arch
 runtime! debian.vim         "This one for Debian
 
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
@@ -35,11 +35,11 @@ filetype off                    " required, for some reason
 
 " Set the runtime path to include Vundle and initialize. Install Vundle there.
 "For vim9:
-set rtp+=/usr/share/vim/vim90/bundle/Vundle.vim
-call vundle#begin("/usr/share/vim/vim90/bundle")
+"set rtp+=/usr/share/vim/vim90/bundle/Vundle.vim
+"call vundle#begin("/usr/share/vim/vim90/bundle")
 "For vim8:
-"set rtp+=/usr/share/vim/vim82/bundle/Vundle.vim
-"call vundle#begin("/usr/share/vim.vim82/bundle")  "That's how it was on Debian
+set rtp+=/usr/share/vim/vim82/bundle/Vundle.vim
+call vundle#begin("/usr/share/vim.vim82/bundle")  "That's how it was on Debian
 
 
 " let Vundle manage Vundle, required
