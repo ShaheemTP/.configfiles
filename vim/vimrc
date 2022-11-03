@@ -45,18 +45,28 @@ call vundle#begin("/usr/share/vim.vim82/bundle")  "That's how it was on Debian
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'bling/vim-airline'                  "Nice statusbar
-Plugin 'vim-airline/vim-airline-themes'     "Nice themes for that nice status bar
-Plugin 'tpope/vim-surround'                 "Bracket-closing and stuff
-Plugin 'w0rp/ale'                           "Auto-completion and stuff, idk why it doesn't work.
-Plugin 'AutoComplPop'                       "Automatically trigger the auto-completion pop-up
-Plugin 'thaerkh/vim-indentguides'           "Lines - indent guides
-Plugin 'msanders/snipmate.vim'              "Snippets for auto-completion
-"Plugin 'honza/vim-snippets'                 "Snippets for auto-completion "Better avoid this one and use the og by msanders cz some error shows up. Gotta fix that.
+"Nice statusbar
+Plugin 'bling/vim-airline'                  
+"Nice themes for that nice status bar
+Plugin 'vim-airline/vim-airline-themes'     
+"Bracket-closing and stuff
+Plugin 'tpope/vim-surround'                 
+"Auto-completion and stuff, gotta figure out why it doesn't work.
+Plugin 'w0rp/ale'                           
+"Automatically trigger the auto-completion pop-up
+Plugin 'AutoComplPop'                       
+"Lines - indent guides
+Plugin 'thaerkh/vim-indentguides'           
+"Snippets for auto-completion
+Plugin 'msanders/snipmate.vim'              
+"Snippets for auto-completion "Better avoid this one and use the og by msanders cz some error shows up. Gotta fix that.
+"Plugin 'honza/vim-snippets'                 
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required "Methinks this is the end of the function call
-filetype plugin indent on     " required "Not sure what it means
+" required - Methinks this is the end of the function call
+call vundle#end()            
+" required - Not sure what it means
+filetype plugin indent on     
 
 "###################### END of Vundle Plugin stuff ############
 
